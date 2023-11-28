@@ -18,17 +18,17 @@ const TabBarIconComponent: React.FC<TabBarIconProps> = ({
         ? require('../../assets/icons/home-active-icon.png')
         : require('../../assets/icons/home-icon.png');
       break;
-    case 'Fornecedores':
+    case 'Diagnóstico':
       iconName = focused
         ? require('../../assets/icons/medical-active-icon.png')
         : require('../../assets/icons/medical-icon.png');
       break;
-    case 'Histórico':
+    case 'Agendar':
       iconName = focused
         ? require('../../assets/icons/calendar-active-icon.png')
         : require('../../assets/icons/calendar-icon.png');
       break;
-    case 'Perfil':
+    case 'Recomendação':
       iconName = focused
         ? require('../../assets/icons/medal-active-icon.png')
         : require('../../assets/icons/medal-icon.png');
