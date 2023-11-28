@@ -20,18 +20,18 @@ const TabBarIconComponent: React.FC<TabBarIconProps> = ({
       break;
     case 'Fornecedores':
       iconName = focused
-        ? require('../../assets/icons/vendors-active-icon.png')
-        : require('../../assets/icons/vendors-icon.png');
+        ? require('../../assets/icons/medical-active-icon.png')
+        : require('../../assets/icons/medical-icon.png');
       break;
     case 'Histórico':
       iconName = focused
-        ? require('../../assets/icons/historic-active-icon.png')
-        : require('../../assets/icons/historic-icon.png');
+        ? require('../../assets/icons/calendar-active-icon.png')
+        : require('../../assets/icons/calendar-icon.png');
       break;
     case 'Perfil':
       iconName = focused
-        ? require('../../assets/icons/profile-active-icon.png')
-        : require('../../assets/icons/profile-icon.png');
+        ? require('../../assets/icons/medal-active-icon.png')
+        : require('../../assets/icons/medal-icon.png');
       break;
     default:
       iconName = undefined;
