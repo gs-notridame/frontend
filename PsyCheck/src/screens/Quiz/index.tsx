@@ -1,20 +1,28 @@
 import React, {useState} from 'react';
-import {View, Button} from 'react-native';
-import {Container, QuestionText, AnswerInput} from './style';
+import {View} from 'react-native';
+import {
+  Container,
+  QuestionText,
+  AnswerInput,
+  Title,
+  Button,
+  ButtonText,
+} from './style';
 
-// Exemplo de perguntas
 const exampleQuestions = [
-  {id: '1', text: 'Qual é o seu filme favorito?'},
-  {id: '2', text: 'Qual é o seu livro favorito?'},
-  {id: '3', text: 'Qual é o seu hobby?'},
+  {id: '1', text: 'Como você está se sentindo ultimamente?'},
+  {
+    id: '2',
+    text: 'Descreva em palavras chaves sentimentos que te definam recentemente',
+  },
+  {id: '3', text: 'Por qual motivo você nos procurou?'},
 ];
 
-const QuestionnairePage = () => {
+const Quiz = () => {
   const [questions] = useState(exampleQuestions);
   const [answers, setAnswers] = useState({});
 
   const submitAnswers = () => {
-    // Implementação do envio
     console.log(answers);
   };
 
@@ -24,6 +32,7 @@ const QuestionnairePage = () => {
 
   return (
     <Container>
+      <Title>Questionário</Title>
       {questions.map(question => (
         <View key={question.id}>
           <QuestionText>{question.text}</QuestionText>
@@ -33,9 +42,11 @@ const QuestionnairePage = () => {
           />
         </View>
       ))}
-      <Button title="Enviar Respostas" onPress={submitAnswers} />
+      <Button onPress={submitAnswers}>
+        <ButtonText>Enviar Respostas</ButtonText>
+      </Button>
     </Container>
   );
 };
 
-export default QuestionnairePage;
+export default Quiz;
