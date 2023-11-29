@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
+import {RootStackParamList} from '../../types/rock-stack-param-list';
 import {View} from 'react-native';
+import {StackNavigationProp} from '@react-navigation/stack';
 import {
   Container,
   QuestionText,
@@ -8,6 +10,12 @@ import {
   Button,
   ButtonText,
 } from './style';
+
+type QuizNavigationProp = StackNavigationProp<RootStackParamList, 'Quiz'>;
+
+type Props = {
+  navigation: QuizNavigationProp;
+};
 
 const exampleQuestions = [
   {id: '1', text: 'Como você está se sentindo ultimamente?'},
@@ -20,7 +28,7 @@ const exampleQuestions = [
   {id: '5', text: 'Por qual motivo você nos procurou?'},
 ];
 
-const Quiz = () => {
+const Quiz: React.FC<Props> = ({navigation}) => {
   const [questions] = useState(exampleQuestions);
   const [answers, setAnswers] = useState({});
 
@@ -44,7 +52,10 @@ const Quiz = () => {
           />
         </View>
       ))}
-      <Button onPress={submitAnswers}>
+      <Button
+        onPress={() => {
+          navigation.navigate('Diagnosis');
+        }}>
         <ButtonText>Enviar Respostas</ButtonText>
       </Button>
     </Container>
