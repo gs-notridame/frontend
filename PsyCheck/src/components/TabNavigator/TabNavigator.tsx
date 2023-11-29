@@ -21,8 +21,8 @@ const TabNavigator = () => (
       ...tabBarOptions,
     })}>
     <Tab.Screen name="Início" component={Portal} />
-    <Tab.Screen name="Agendar" component={Schedule} />
     <Tab.Screen name="Diagnóstico" component={DiagnosisResult} />
+    <Tab.Screen name="Agendar" component={Schedule} />
     <Tab.Screen name="Perfil" component={Profile} />
   </Tab.Navigator>
 );
