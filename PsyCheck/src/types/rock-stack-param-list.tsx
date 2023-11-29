@@ -5,4 +5,5 @@ export type RootStackParamList = {
   Portal: undefined;
   TabNavigator: undefined;
   Quiz: undefined;
+  Diagnosis: undefined;
 };
