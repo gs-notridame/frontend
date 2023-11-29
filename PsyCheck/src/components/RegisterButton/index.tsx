@@ -6,7 +6,10 @@ type RegisterButtonProps = {
   text: string;
 };
 
-export const RegisterButton: React.FC<RegisterButtonProps> = ({onPress, text}) => {
+export const RegisterButton: React.FC<RegisterButtonProps> = ({
+  onPress,
+  text,
+}) => {
   return (
     <Button onPress={onPress}>
       <ButtonText>{text}</ButtonText>
