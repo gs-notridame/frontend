@@ -24,7 +24,22 @@ export const Logo = styled.Image`
 `;
 
 export const ForgotPasswordText = styled.Text`
-  color: #FF85D0;
+  color: #ff85d0;
   margin-top: 20px;
   text-decoration: underline;
+`;
+
+export const Button = styled.TouchableOpacity`
+  width: 90%;
+  height: 56px;
+  background-color: #ff85d0;
+  border-radius: 12px;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ButtonText = styled.Text`
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
 `;

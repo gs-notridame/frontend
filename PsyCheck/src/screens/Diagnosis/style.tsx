@@ -14,20 +14,11 @@ export const Title = styled.Text`
   margin-left: 120px;
 `;
 
-export const QuestionText = styled.Text`
-  font-size: 20px;
-  margin-top: 35px;
-  color: black;
-`;
-
-export const AnswerInput = styled.TextInput`
-  width: 100%;
-  height: 50px;
-  padding: 10px;
-  margin-top: 5px;
-  font-size: 16px;
-  border-radius: 5px;
-  background-color: #ededed;
+export const CheckImage = styled.Image`
+  width: 300px;
+  height: 300px;
+  margin-top: 50px;
+  margin-left: 45px;
 `;
 
 export const Button = styled.TouchableOpacity`
@@ -44,4 +35,20 @@ export const ButtonText = styled.Text`
   font-size: 20px;
   font-weight: bold;
   color: #fff;
+`;
+
+export const WelcomeText = styled.Text`
+  font-size: 40px;
+  font-weight: bold;
+  margin-top: 50px;
+  text-align: center;
+  color: #000000;
+`;
+
+export const SubText = styled.Text`
+  font-size: 25px;
+  color: #555;
+  margin-top: 80px;
+  margin-bottom: 50px;
+  text-align: center;
 `;

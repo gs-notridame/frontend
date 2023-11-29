@@ -81,7 +81,6 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
         onChangeText={setConfirmPassword}
         secureTextEntry
       />
-      <RegisterButton onPress={handleRegisterPress} text="Cadastre-se" />
     </>
   );
 };

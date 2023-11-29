@@ -1,6 +1,13 @@
 import React, {useState} from 'react';
 import RegisterForm from '../../components/RegisterForm';
-import {Container, ContentContainer, BackgroundImage, Logo} from './style';
+import {
+  Container,
+  ContentContainer,
+  BackgroundImage,
+  Logo,
+  Button,
+  ButtonText,
+} from './style';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from '../../types/rock-stack-param-list';
 import Toast from 'react-native-toast-message';
@@ -85,6 +92,12 @@ const Register: React.FC<Props> = ({navigation}) => {
             setCnpj={setCnpj}
             onRegisterPress={handleRegister}
           />
+          <Button
+            onPress={() => {
+              navigation.navigate('Login');
+            }}>
+            <ButtonText>Cadastro</ButtonText>
+          </Button>
         </ContentContainer>
       </BackgroundImage>
     </Container>

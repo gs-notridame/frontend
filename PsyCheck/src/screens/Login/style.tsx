@@ -24,7 +24,7 @@ export const Logo = styled.Image`
 `;
 
 export const ForgotPasswordText = styled.Text`
-  color: #FF85D0;
+  color: #ff85d0;
   margin-top: 20px;
   text-decoration: underline;
 `;

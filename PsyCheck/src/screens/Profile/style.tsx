@@ -24,7 +24,7 @@ export const InputField = styled.TextInput`
 `;
 
 export const LogoutButton = styled.TouchableOpacity`
-  background-color: #FF85D0;
+  background-color: #ff85d0;
   padding: 10px;
   border-radius: 5px;
   margin-top: 2px;

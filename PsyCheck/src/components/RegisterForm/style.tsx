@@ -13,7 +13,7 @@ export const Input = styled.TextInput`
 export const Button = styled.TouchableOpacity`
   width: 88%;
   height: 56px;
-  background-color: #FF85D0;
+  background-color: #ff85d0;
   border-radius: 12px;
   justify-content: center;
   align-items: center;
@@ -37,5 +37,5 @@ export const Text = styled.Text`
   font-weight: bold;
   padding-bottom: 0px;
   text-align: center;
-  color: #FF85D0;
+  color: #ff85d0;
 `;
