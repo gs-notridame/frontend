@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import {View, Text, TextInput, FlatList, Image} from 'react-native';
 import {styles} from './style';
-import {vendorsData} from '../../components/VendorsCards';
+import {diagnosisResultData} from '../../components/DiagnosisResultCards';
 
-const Vendors: React.FC = () => {
+const DiagnosisResult: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleSearchChange = (query: string) => {
@@ -11,7 +11,7 @@ const Vendors: React.FC = () => {
     // Logic to handle search
   };
 
-  const renderVendorItem = ({item}) => (
+  const renderDiagnosisResultItem = ({item}) => (
     <View style={styles.card}>
       <Image source={item.image} style={styles.cardImage} />
       <Text style={styles.cardTitle}>{item.name}</Text>
@@ -21,16 +21,10 @@ const Vendors: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Fornecedores</Text>
-      <TextInput
-        style={styles.searchInput}
-        value={searchQuery}
-        onChangeText={handleSearchChange}
-        placeholder="Procurar fornecedor..."
-      />
+      <Text style={styles.title}>Diagnóstico</Text>
       <FlatList
-        data={vendorsData}
-        renderItem={renderVendorItem}
+        data={diagnosisResultData}
+        renderItem={renderDiagnosisResultItem}
         keyExtractor={item => item.id}
         numColumns={2}
         columnWrapperStyle={styles.row}
@@ -39,4 +33,4 @@ const Vendors: React.FC = () => {
   );
 };
 
-export default Vendors;
+export default DiagnosisResult;
