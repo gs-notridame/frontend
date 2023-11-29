@@ -21,8 +21,8 @@ const TabNavigator = () => (
       ...tabBarOptions,
     })}>
     <Tab.Screen name="Início" component={Portal} />
-    <Tab.Screen name="Fornecedores" component={Vendors} />
-    <Tab.Screen name="Histórico" component={History} />
+    <Tab.Screen name="Diagnóstico" component={Vendors} />
+    <Tab.Screen name="Agendar" component={History} />
     <Tab.Screen name="Perfil" component={Profile} />
   </Tab.Navigator>
 );
