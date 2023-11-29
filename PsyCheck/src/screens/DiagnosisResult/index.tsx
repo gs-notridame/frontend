@@ -22,12 +22,6 @@ const DiagnosisResult: React.FC = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Diagnóstico</Text>
-      <TextInput
-        style={styles.searchInput}
-        value={searchQuery}
-        onChangeText={handleSearchChange}
-        placeholder="Procurar diagnóstico..."
-      />
       <FlatList
         data={diagnosisResultData}
         renderItem={renderDiagnosisResultItem}
