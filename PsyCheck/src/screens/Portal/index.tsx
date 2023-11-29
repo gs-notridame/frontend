@@ -3,21 +3,22 @@ import {carouselData} from '../../components/PortalCarolseu';
 import {styless} from '../../components/PortalCarolseu/style';
 import {
   Container,
-  SearchContainer,
-  SearchInput,
-  IconContainer,
-  SearchIcon,
-  ShoppingCartIconContainer,
-  ShoppingCartIcon,
   styles,
   WelcomeText,
   WelcomeName,
-  Categories,
+  Categories
 } from './style';
 import {View, FlatList, Image, Text} from 'react-native';
-import {SearchButton} from '../../components/SearchButton';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {RootStackParamList} from '../../types/rock-stack-param-list';
 
-const Portal: React.FC = () => {
+type PortalNavigationProp = StackNavigationProp<RootStackParamList, 'Portal'>;
+
+type Props = {
+  navigation: PortalNavigationProp;
+};
+
+const Portal: React.FC<Props> = ({navigation}) => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleSearchChange = (query: string) => {
@@ -54,7 +55,6 @@ const Portal: React.FC = () => {
         snapToAlignment="center"
         pagingEnabled
       />
-      <SearchButton text="Diagnóstico" />
     </Container>
   );
 };
