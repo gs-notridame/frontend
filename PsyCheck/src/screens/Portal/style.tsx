@@ -8,7 +8,7 @@ export const Container = styled.View`
 
 export const SearchContainer = styled.View`
   padding: 10px;
-  background-color: #FF85D0;
+  background-color: #ff85d0;
   border-bottom-width: 1px;
   border-color: #e4e4e4;
   flex-direction: row;
@@ -56,7 +56,7 @@ export const ShoppingCartIcon = styled.Image`
 `;
 
 export const WelcomeText = styled.Text`
-  color: #FF85D0;
+  color: #ff85d0;
   margin-top: 22px;
   margin-left: 18px;
   font-size: 25px;
