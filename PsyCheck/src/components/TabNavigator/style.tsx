@@ -7,7 +7,7 @@ export const tabBarOptions = {
     height: 58,
   },
   tabBarLabelStyle: {
-    fontSize: 14,
+    fontSize: 13,
   },
   tabBarActiveTintColor: '#ff85d0',
   tabBarInactiveTintColor: 'black',
