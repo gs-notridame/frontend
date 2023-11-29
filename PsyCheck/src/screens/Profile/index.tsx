@@ -10,6 +10,7 @@ import {
 } from './style';
 
 import {LogoutButton} from '../../components/LogoutButton';
+import {DeleteAccountButton} from '../../components/DeleteAccountButton';
 
 const defaultUserImage = require('../../assets/images/default-profile-image.png');
 const editIcon = require('../../assets/icons/edit-active-icon.png');
@@ -24,6 +25,11 @@ const UserPage = ({navigation}) => {
 
   const handleLogout = () => {
     Alert.alert('Logout', 'Você saiu da sua conta.');
+    navigation.navigate('Home');
+  };
+
+  const handleDeleteAccount = () => {
+    Alert.alert('Excluir', 'Você excluiu sua conta.');
     navigation.navigate('Home');
   };
 
@@ -91,8 +97,11 @@ const UserPage = ({navigation}) => {
           </TouchableOpacity>
         </InputRow>
       </View>
-
       <LogoutButton onPress={handleLogout} text="Logout" />
+      <DeleteAccountButton
+        onPress={handleDeleteAccount}
+        text="Desativar-Conta"
+      />
     </Container>
   );
 };
