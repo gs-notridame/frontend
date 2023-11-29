@@ -9,7 +9,7 @@ export const tabBarOptions = {
   tabBarLabelStyle: {
     fontSize: 14,
   },
-  tabBarActiveTintColor: '#FF85D0',
+  tabBarActiveTintColor: '#ff85d0',
   tabBarInactiveTintColor: 'black',
 };
 
