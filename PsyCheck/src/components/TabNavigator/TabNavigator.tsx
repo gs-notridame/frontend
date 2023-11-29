@@ -2,8 +2,8 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Portal from '../../screens/Portal';
-import Vendors from '../../screens/Vendors';
 import Schedule from '../../screens/Schedule';
+import DiagnosisResult from '../../screens/DiagnosisResult';
 import Profile from '../../screens/Profile';
 import TabBarIconComponent from './TabBarIcon';
 import {tabBarOptions} from './style';
@@ -21,8 +21,8 @@ const TabNavigator = () => (
       ...tabBarOptions,
     })}>
     <Tab.Screen name="Início" component={Portal} />
-    <Tab.Screen name="Diagnóstico" component={Vendors} />
     <Tab.Screen name="Agendar" component={Schedule} />
+    <Tab.Screen name="Diagnóstico" component={DiagnosisResult} />
     <Tab.Screen name="Perfil" component={Profile} />
   </Tab.Navigator>
 );
