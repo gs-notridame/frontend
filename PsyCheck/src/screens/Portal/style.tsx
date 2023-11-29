@@ -13,7 +13,7 @@ export const IconContainer = styled.View`
 `;
 
 export const WelcomeText = styled.Text`
-  color: #ff85d0;
+  color: #000000;
   margin-top: 40px;
   margin-left: 18px;
   font-size: 25px;
@@ -21,7 +21,7 @@ export const WelcomeText = styled.Text`
 `;
 
 export const WelcomeName = styled.Text`
-  color: #000000;
+  color: #ff85d0;
   font-size: 25px;
   font-weight: bold;
 `;
