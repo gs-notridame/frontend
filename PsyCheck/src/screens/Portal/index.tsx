@@ -35,22 +35,6 @@ const Portal: React.FC = () => {
 
   return (
     <Container>
-      <SearchContainer>
-        <IconContainer>
-          <SearchIcon source={require('../../assets/icons/search-icon.png')} />
-        </IconContainer>
-        <SearchInput
-          value={searchQuery}
-          onChangeText={handleSearchChange}
-          placeholder="Buscar um produto no PsyCheck"
-          clearButtonMode="while-editing"
-        />
-      </SearchContainer>
-      <ShoppingCartIconContainer>
-        <ShoppingCartIcon
-          source={require('../../assets/icons/shopping-cart-icon.png')}
-        />
-      </ShoppingCartIconContainer>
       <WelcomeText>
         Bem vindo, <WelcomeName>Victor</WelcomeName>
       </WelcomeText>
@@ -60,7 +44,7 @@ const Portal: React.FC = () => {
           style={styles.titleImage}
         />
       </View>
-      <Categories> Categorias </Categories>
+      <Categories> Recomendações </Categories>
       <FlatList
         data={carouselData}
         renderItem={renderCarouselItem}
@@ -70,7 +54,7 @@ const Portal: React.FC = () => {
         snapToAlignment="center"
         pagingEnabled
       />
-      <SearchButton text="Buscar produto" />
+      <SearchButton text="Diagnóstico" />
     </Container>
   );
 };
