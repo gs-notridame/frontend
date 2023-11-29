@@ -10,6 +10,7 @@ import Register from '../screens/Register';
 import Quiz from '../screens/Quiz/index';
 import Diagnosis from '../screens/Diagnosis';
 import TabNavigator from '../components/TabNavigator/TabNavigator';
+import DiagnosisResult from '../screens/DiagnosisResult';
 
 const Stack = createNativeStackNavigator();
 
@@ -68,6 +69,15 @@ export default function StackComponent() {
             headerShown: false,
           }}
           component={Diagnosis}
+        />
+        <Stack.Screen
+          name="DiagnosisResult"
+          options={{
+            title: '',
+            headerTransparent: true,
+            headerShown: false,
+          }}
+          component={DiagnosisResult}
         />
         <Stack.Screen
           name="TabNavigator"

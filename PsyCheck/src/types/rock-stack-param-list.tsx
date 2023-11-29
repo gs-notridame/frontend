@@ -6,4 +6,5 @@ export type RootStackParamList = {
   TabNavigator: undefined;
   Quiz: undefined;
   Diagnosis: undefined;
+  DiagnosisResult: undefined;
 };
