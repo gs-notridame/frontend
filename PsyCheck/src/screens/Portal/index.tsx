@@ -22,10 +22,6 @@ const Portal: React.FC = () => {
     findUserName();
   }, []);
 
-  const handleSearchChange = (query: string) => {
-    setSearchQuery(query);
-  };
-
   const renderCarouselItem = ({item}) => (
     <View style={styless.carouselItem}>
       <Image source={item.image} style={styless.carouselImage} />
