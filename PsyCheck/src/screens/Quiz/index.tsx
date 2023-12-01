@@ -10,6 +10,7 @@ import {
   Button,
   ButtonText,
 } from './style';
+import {Alert} from 'react-native';
 
 type QuizNavigationProp = StackNavigationProp<RootStackParamList, 'Quiz'>;
 
@@ -32,7 +33,8 @@ const Quiz: React.FC<Props> = ({navigation}) => {
   const [questions] = useState(exampleQuestions);
   const [answers, setAnswers] = useState({});
 
-  const submitAnswers = () => {
+  const handleSubmitAnswers = () => {
+    Alert.alert('Respostas enviadas!');
     console.log(answers);
   };
 
@@ -55,6 +57,7 @@ const Quiz: React.FC<Props> = ({navigation}) => {
       <Button
         onPress={() => {
           navigation.navigate('Diagnosis');
+          handleSubmitAnswers();
         }}>
         <ButtonText>Enviar Respostas</ButtonText>
       </Button>
