@@ -1,29 +1,29 @@
-import React, {useState} from 'react';
+import axios from 'axios';
+import React, {useState, useEffect} from 'react';
 import {carouselData} from '../../components/PortalCarolseu';
 import {styless} from '../../components/PortalCarolseu/style';
-import {
-  Container,
-  styles,
-  WelcomeText,
-  WelcomeName,
-  Categories
-} from './style';
+import {Container, styles, WelcomeText, WelcomeName, Categories} from './style';
 import {View, FlatList, Image, Text} from 'react-native';
-import {StackNavigationProp} from '@react-navigation/stack';
-import {RootStackParamList} from '../../types/rock-stack-param-list';
 
-type PortalNavigationProp = StackNavigationProp<RootStackParamList, 'Portal'>;
-
-type Props = {
-  navigation: PortalNavigationProp;
-};
-
-const Portal: React.FC<Props> = ({navigation}) => {
+const Portal: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
+  const [userName, setUserName] = useState('');
+
+  useEffect(() => {
+    const findUserName = async () => {
+      try {
+        const response = await axios.get('http://172.19.0.1:8080/paciente/6');
+        setUserName(response.data.pessoa.nome);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    findUserName();
+  }, []);
 
   const handleSearchChange = (query: string) => {
     setSearchQuery(query);
-    // Logic to handle search
   };
 
   const renderCarouselItem = ({item}) => (
@@ -37,7 +37,7 @@ const Portal: React.FC<Props> = ({navigation}) => {
   return (
     <Container>
       <WelcomeText>
-        Bem vindo, <WelcomeName>Victor</WelcomeName>
+        Bem vindo<WelcomeName>{', ' + userName || '!'}</WelcomeName>
       </WelcomeText>
       <View style={styles.container}>
         <Image
