@@ -46,5 +46,6 @@ export const styles = StyleSheet.create({
     resizeMode: 'cover',
     borderRadius: 8,
     shadowColor: 'black',
+    marginTop: 25,
   },
 });
