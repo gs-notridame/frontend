@@ -1,17 +1,15 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Input} from './style';
-import {RegisterButton} from '../RegisterButton';
-import {Text} from './style';
 
 type RegisterFormProps = {
-  companyName: string;
-  setCompanyName: (text: string) => void;
-  phone: string;
-  setPhone: (text: string) => void;
+  name: string;
+  setName: (text: string) => void;
+  numSeguroSaude: string;
+  setNumSeguroSaude: (text: string) => void;
   email: string;
   setEmail: (text: string) => void;
-  cnpj: string;
-  setCnpj: (text: string) => void;
+  cpf: string;
+  setCpf: (text: string) => void;
   password: string;
   setPassword: (text: string) => void;
   confirmPassword: string;
@@ -20,32 +18,25 @@ type RegisterFormProps = {
 };
 
 const RegisterForm: React.FC<RegisterFormProps> = ({
-  companyName,
-  setCompanyName,
+  name,
+  setName,
+  numSeguroSaude,
+  setNumSeguroSaude,
   email,
   setEmail,
-  phone,
-  setPhone,
-  cnpj,
-  setCnpj,
+  cpf,
+  setCpf,
   password,
   setPassword,
   confirmPassword,
   setConfirmPassword,
-  onRegisterPress,
 }) => {
-  const [isTermsAccepted, setIsTermsAccepted] = useState(false);
-
-  const handleRegisterPress = () => {
-    onRegisterPress();
-  };
-
   return (
     <>
       <Input
-        placeholder="Nome da empresa"
-        value={companyName}
-        onChangeText={setCompanyName}
+        placeholder="Nome"
+        value={name}
+        onChangeText={setName}
         autoCapitalize="none"
         keyboardType="name-phone-pad"
       />
@@ -57,16 +48,16 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
         keyboardType="email-address"
       />
       <Input
-        placeholder="Telefone"
-        value={phone}
-        onChangeText={setPhone}
-        autoCapitalize="none"
-        keyboardType="phone-pad"
+        placeholder="CPF"
+        value={cpf}
+        onChangeText={setCpf}
+        keyboardType="numeric"
       />
       <Input
-        placeholder="CNPJ"
-        value={cnpj}
-        onChangeText={setCnpj}
+        placeholder="Numero Seguro Saúde"
+        value={numSeguroSaude}
+        onChangeText={setNumSeguroSaude}
+        autoCapitalize="none"
         keyboardType="numeric"
       />
       <Input
