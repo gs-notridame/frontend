@@ -29,8 +29,45 @@ const UserPage = ({navigation}) => {
   };
 
   const handleDeleteAccount = () => {
-    Alert.alert('Excluir', 'Você excluiu sua conta.');
-    navigation.navigate('Home');
+    Alert.alert(
+      'Excluir Conta',
+      'Tem certeza que deseja desativar sua conta?',
+      [
+        {
+          text: 'Cancelar',
+          style: 'cancel',
+        },
+        {
+          text: 'Confirmar',
+          onPress: async () => {
+            try {
+              const response = await fetch(
+                'http://172.19.0.1:8080/paciente/5',
+                {
+                  method: 'DELETE',
+                },
+              );
+
+              if (response.ok) {
+                Alert.alert(
+                  'Conta Desativada',
+                  'Sua conta foi desativada com sucesso.',
+                );
+                navigation.navigate('Home');
+              } else {
+                Alert.alert('Erro', 'Não foi possível desativar a conta.');
+              }
+            } catch (error) {
+              console.error(error);
+              Alert.alert(
+                'Erro de Conexão',
+                'Não foi possível conectar ao servidor.',
+              );
+            }
+          },
+        },
+      ],
+    );
   };
 
   // Função para lidar com a edição do campo
