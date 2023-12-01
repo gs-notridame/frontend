@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Alert, TouchableOpacity, View} from 'react-native';
 import {
   Container,
@@ -11,21 +11,81 @@ import {
 
 import {LogoutButton} from '../../components/LogoutButton';
 import {DeleteAccountButton} from '../../components/DeleteAccountButton';
+import {SaveChangesButton} from '../../components/SaveChangesButton';
 
 const defaultUserImage = require('../../assets/images/default-profile-image.png');
 const editIcon = require('../../assets/icons/edit-active-icon.png');
 
 const UserPage = ({navigation}) => {
-  const [name, setName] = useState('PsyCheck LTDA');
-  const [email, setEmail] = useState('PsyCheck@orçamentos.com');
-  const [phone, setPhone] = useState('(11) 3385-8010');
-  const [address, setAddress] = useState(
-    'Av. Paulista, 1106 - 7º andar - Bela Vista',
-  );
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [cpf, setCpf] = useState('');
+  const [password, setPassword] = useState('');
+
+  useEffect(() => {
+    const findUserData = async () => {
+      try {
+        const response = await fetch('http://172.19.0.1:8080/paciente/6');
+        const json = await response.json();
+        setName(json.pessoa.nome);
+        setEmail(json.pessoa.email);
+        setCpf(json.pessoa.cpf);
+        setPassword(json.pessoa.senha);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    findUserData();
+  }, []);
+
+  const handleSaveChanges = async () => {
+    try {
+      const updatedData = {
+        codPaciente: 6,
+        historico: 'Histórico do paciente',
+        numSeguroSaude: '1234567890',
+        pessoa: {
+          nome: name,
+          email: email,
+          softDelete: false,
+          usuario: 'usuario_paciente',
+          cpf: cpf,
+          senha: password,
+          dataNasc: '1990-01-01',
+          genero: {
+            genero: 'MASCULINO',
+          },
+        },
+      };
+      const response = await fetch('http://172.19.0.1:8080/paciente', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedData),
+      });
+      if (response.ok) {
+        Alert.alert('Sucesso', 'Dados atualizados com sucesso.');
+      } else {
+        Alert.alert('Erro', 'Não foi possível atualizar os dados.');
+      }
+    } catch (error) {
+      console.error(error);
+      Alert.alert(
+        'Erro de Conexão',
+        'Não foi possível conectar ao servidor para atualizar os dados.',
+      );
+    }
+  };
 
   const handleLogout = () => {
     Alert.alert('Logout', 'Você saiu da sua conta.');
     navigation.navigate('Home');
+  };
+
+  const handleEdit = (field: string) => {
+    Alert.alert('Editar', `Editar ${field}`);
   };
 
   const handleDeleteAccount = () => {
@@ -42,7 +102,7 @@ const UserPage = ({navigation}) => {
           onPress: async () => {
             try {
               const response = await fetch(
-                'http://172.19.0.1:8080/paciente/5',
+                'http://172.19.0.1:8080/paciente/1',
                 {
                   method: 'DELETE',
                 },
@@ -68,11 +128,6 @@ const UserPage = ({navigation}) => {
         },
       ],
     );
-  };
-
-  // Função para lidar com a edição do campo
-  const handleEdit = (field: string) => {
-    Alert.alert('Editar', `Editar ${field}`);
   };
 
   return (
@@ -108,12 +163,12 @@ const UserPage = ({navigation}) => {
       </View>
 
       <View>
-        <Title>Telefone</Title>
+        <Title>CPF</Title>
         <InputRow>
           <InputField
-            placeholder="Telefone"
-            value={phone}
-            onChangeText={text => setPhone(text)}
+            placeholder="CPF"
+            value={cpf}
+            onChangeText={text => setCpf(text)}
           />
           <TouchableOpacity onPress={() => handleEdit('telefone')}>
             <EditIcon source={editIcon} />
@@ -122,12 +177,13 @@ const UserPage = ({navigation}) => {
       </View>
 
       <View>
-        <Title>Endereço</Title>
+        <Title>Senha</Title>
         <InputRow>
           <InputField
-            placeholder="Endereço"
-            value={address}
-            onChangeText={text => setAddress(text)}
+            secureTextEntry={true}
+            placeholder="Senha"
+            value={password}
+            onChangeText={text => setPassword(text)}
           />
           <TouchableOpacity onPress={() => handleEdit('endereço')}>
             <EditIcon source={editIcon} />
@@ -135,6 +191,7 @@ const UserPage = ({navigation}) => {
         </InputRow>
       </View>
       <LogoutButton onPress={handleLogout} text="Logout" />
+      <SaveChangesButton onPress={handleSaveChanges} text="Salvar" />
       <DeleteAccountButton
         onPress={handleDeleteAccount}
         text="Desativar-Conta"
