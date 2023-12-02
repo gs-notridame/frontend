@@ -93,3 +93,87 @@ Facilitando a colaboração entre usuários e profissionais de saúde, o PsyChec
 O Projeto PsyCheck ilustra como a inovação tecnológica pode transformar a abordagem aos desafios de saúde mental. Ao integrar inteligência artificial, chatbots e análise de dados, o aplicativo oferece uma solução abrangente que não apenas aborda os sintomas, mas também trabalha na prevenção e colaboração. O potencial impacto positivo na sociedade destaca a importância de soluções criativas e tecnologicamente avançadas na melhoria da saúde mental.
 Fechar
 tem menu de contexto
+<a id="_fluxograma_"></a>
+
+# Fluxograma da Arquitetura do Sistema
+
+<img src="./ReadmeImages/fluxograma_arquitetura_sistema.png" title="Fluxograma da Arquitetura do Sistema">
+
+<a id="_der_"></a>
+
+# Diagrama de Entidades e Relacionamentos
+
+<img src="./ReadmeImages/ML.png" title="Fluxograma da Arquitetura do Sistema">
+
+<a id="_mer_"></a>
+
+# Modelo de Entidades e Relacionamentos
+
+<img src="./ReadmeImages/MR.png" title="Fluxograma da Arquitetura do Sistema">
+
+<a id="_Diagrama_de_Classes"></a>
+
+# Diagrama de Classes
+
+<img src="./ReadmeImages/diagrama_classes.png" title="Diagrama de Classes">
+
+<a id="_Rodar_Aplicacao"></a>
+
+# Como rodar a aplicação
+
+## Rodar Aplicação Backend em Spring
+
+### Fazer o clone do projeto em https://github.com/gs-notridame/backend.git
+
+Será necessário seguir os passos abaixo:
+
+1. **Build do projeto**: Através do maven abra o projeto e execute o seguinte comando:
+
+mvn clean install -DskipTests -U
+
+Assim ele irá buildar o projeto pulando as etapas de testes e forçando atualizações necessárias. (Caso não tenha o maven indico utilizar o Intellij IDEA para executar o comando pois o mesmo ja vem com o maven dentro)
+
+2. **Encontrar arquivo .jar (lib) do projeto**:
+   Após o build do projeto se tudo ocorrer bem esperamos encontrar um arquivo .jar do projeto dentro da pasta target do projeto (A mesma foi criada logo após o build).
+
+/target/syncfy-0.0.1-SNAPSHOT.jar
+
+3. **Rodar aplicação através da lib**: Agora que temos nossa lib(arquivo .jar do nosso projeto) podemos rodar a aplicação com o seguinte comando:
+
+java -jar target/syncfy-0.0.1-SNAPSHOT.jar
+
+p.s. é necessário ter a jdk versão 17 instalada em sua máquina ou podem acontecer erros de versão.
+
+<a id="_endpoints"></a>
+
+### Endpoints para testar a aplicação rodando:
+
+<a id="_pitch"></a>
+
+## Rodar Aplicação Frontend Mobile em React Native
+
+Clonar o projeto na máquina:
+
+git clone <link do repo>
+
+Entra na pasta do projeto:
+
+cd frontend/PsyCheck/
+
+Instalar dependências do projeto:
+
+yarn
+
+Caso não tenha yarn instalado, deverá instar!
+
+Rodar aplicação:
+
+yarn start
+
+Abrir emulador Android:
+
+Seguir comandos citados no console
+
+## Para mais detalhes assista ao nosso Picth:
+
+[![Alt text](https://img.youtube.com/vi/5Qvdya6ijFY/0.jpg)](https://www.youtube.com/watch?v=5Qvdya6ijFY)
